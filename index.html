@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustfy | AI-Driven Restaurant & Cafe Menu Data Analytics for B2B</title>
+    <meta name="description" content="Gustfy is the leading AI-driven B2B platform for restaurant, cafe, and bar menu data aggregation, price tracking, and competitive intelligence. Unlock real-time menu analytics and market insights for your business.">
+    <meta name="keywords" content="AI restaurant menu data, B2B menu analytics, restaurant price tracking, menu intelligence, cafe data aggregator, bar menu analytics, competitive intelligence, menu data platform, menu price comparison, menu analytics dashboard">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Gustfy | AI-Driven Restaurant & Cafe Menu Data Analytics for B2B">
+    <meta property="og:description" content="Unlock the power of real-time menu data with Gustfy's AI-driven analytics platform for restaurants, cafes, and bars. Get competitive intelligence and actionable insights.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gustfy.com/">
+    <meta property="og:image" content="gustfy_logo_v2.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gustfy | AI-Driven Restaurant & Cafe Menu Data Analytics for B2B">
+    <meta name="twitter:description" content="AI-powered menu data aggregation, price tracking, and competitive intelligence for restaurants, cafes, and bars.">
+    <meta name="twitter:image" content="gustfy_logo_v2.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Gustfy",
+      "url": "https://gustfy.com/",
+      "logo": "gustfy_logo_v2.png",
+      "description": "AI-driven B2B restaurant, cafe, and bar menu data analytics platform for competitive intelligence and price tracking.",
+      "sameAs": [
+        "https://www.linkedin.com/company/gustfy/",
+        "https://twitter.com/gustfy"
+      ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary-orange: #F97316;
+            --dark-orange: #EA580C;
+            --light-orange: #FFF7ED;
+            --accent-orange: #FB923C;
+            --deep-orange: #C2410C;
+            --pale-orange: #FFEDD5;
+            --dark-text: #111827;
+            --body-text: #6B7280;
+            --light-gray: #F9FAFB;
+            --border-gray: #E5E7EB;
+            --white: #FFFFFF;
+            --gradient-bg: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--body-text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        h1 { font-size: 3.5rem; line-height: 1.1; }
+        h2 { font-size: 2.5rem; line-height: 1.2; }
+        h3 { font-size: 1.5rem; line-height: 1.3; }
+        h4 { font-size: 1.25rem; line-height: 1.4; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--dark-text);
+            text-decoration: none;
+        }
+
+        .logo-accent {
+            color: var(--primary-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--body-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-bg);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-orange);
+            border: 2px solid var(--primary-orange);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-bg);
+            color: var(--white);
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgb(255, 255, 255);
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--white);
+        }
+
+        .hero .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-orange);
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        .problem-card h4 {
+            color: var(--dark-text);
+            margin-bottom: 15px;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--white);
+        }
+
+        .solution-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .solution-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .solution-step::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -20px;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-orange);
+            opacity: 0.3;
+        }
+
+        .solution-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-orange);
+            color: var(--white);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .solution-step h4 {
+            margin-bottom: 15px;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--light-orange);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: var(--pale-orange);
+            border-radius: 50%;
+            margin-bottom: 25px;
+        }
+
+        .feature-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--primary-orange);
+        }
+
+        /* B2B Offerings Section */
+        .offerings {
+            background: var(--white);
+        }
+
+        .offerings-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .offerings-list {
+            list-style: none;
+        }
+
+        .offerings-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: var(--white);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .offerings-visual {
+            background: var(--light-orange);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Analytics Section */
+        .analytics {
+            background: var(--pale-orange);
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .analytics-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .analytics-card h4 {
+            color: var(--primary-orange);
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: var(--gradient-bg);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.125rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .email-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-text);
+            color: var(--light-gray);
+            padding: 50px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .header .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero-cta, .cta-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .offerings-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .solution-step::after {
+                display: none;
+            }
+
+            .email-input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" aria-label="Main site header">
+        <div class="container">
+            <a href="#" class="logo" aria-label="Gustfy Home">Gustfy<span class="logo-accent">.</span></a>
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-primary">Request Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Gustfy B2B Restaurant Menu Data Analytics">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Up-to-date and organized Restaurant, Cafe, Bar Menu Data</h1>
+                    <p class="hero-subtitle">Unlock the power of real-time menu data with AI-driven insights that give your business the competitive edge it needs. Our fully automated restaurant & cafe menu aggregator delivers comprehensive market intelligence for B2B clients.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Request Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Statement Section -->
+        <section class="problem section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Challenge We Solve</h2>
+                    <p>Restaurant businesses face critical data visibility gaps that limit their competitive advantage and market understanding.</p>
+                </div>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <h4>No Price Tracking Visibility</h4>
+                        <p>Menu item price tracking across multiple locations remains invisible, making competitive pricing strategies impossible to implement effectively.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h4>Inconsistent Product Naming</h4>
+                        <p>Millions of inconsistent product naming conventions across menus create confusion and make data analysis nearly impossible.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h4>Fragmented Pricing Data</h4>
+                        <p>Pricing information is scattered across different locations and platforms, preventing comprehensive market analysis.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h4>Location-Based Blind Spots</h4>
+                        <p>Difficulty tracking location-specific product availability and pricing variations across different markets and regions.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h4>Limited Menu Coverage</h4>
+                        <p>Lack of comprehensive menu coverage analysis prevents businesses from understanding their competitive positioning.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h4>Missing Location Insights</h4>
+                        <p>Absence of detailed location-specific insights limits strategic decision-making and market expansion opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Overview Section -->
+        <section class="solution section" id="solution">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How Gustfy Works</h2>
+                    <p>Our comprehensive AI-driven approach transforms fragmented restaurant data into actionable business intelligence.</p>
+                </div>
+                <div class="solution-steps">
+                    <div class="solution-step">
+                        <div class="step-number">1</div>
+                        <h4>Data Collection</h4>
+                        <p>Automated QR code collection from multiple providers and locations, ensuring comprehensive coverage across the restaurant ecosystem.</p>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-number">2</div>
+                        <h4>Smart Crawling</h4>
+                        <p>Periodic crawling of dynamic SKUs and prices via QR menus, capturing real-time changes and updates automatically.</p>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-number">3</div>
+                        <h4>AI Processing</h4>
+                        <p>Advanced AI-driven automation processes menu items with full restaurant and location context for accurate categorization.</p>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-number">4</div>
+                        <h4>Data Standardization</h4>
+                        <p>Master SKU, brand, and manufacturer extraction creates unified data standards across all collected information.</p>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-number">5</div>
+                        <h4>Historical Tracking</h4>
+                        <p>Complete price change history storage enables trend analysis and predictive insights for strategic planning.</p>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-number">6</div>
+                        <h4>Intelligence Layer</h4>
+                        <p>Data-driven dashboards and analytics transform raw data into actionable business insights and competitive intelligence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Technology Features -->
+        <section class="features section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Core Technology Features</h2>
+                    <p>Cutting-edge technology stack designed for enterprise-grade restaurant data intelligence.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+                        </div>
+                        <h4>Automated Weekly Crawling</h4>
+                        <p>Continuous restaurant menu data collection with automated weekly crawling cycles ensuring up-to-date information across all monitored locations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.611L5 14.5" />
+                            </svg>
+                        </div>
+                        <h4>Anomaly Detection & Matching</h4>
+                        <p>Proprietary algorithms ensure data quality and health through advanced anomaly detection and intelligent matching systems.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+                        </div>
+                        <h4>Location-Based Intelligence</h4>
+                        <p>Precise product availability, competition analysis, and price detection with granular location-specific insights for strategic planning.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- B2B Product Offerings -->
+        <section class="offerings section" aria-label="Interactive Dashboard Preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>B2B Product Offerings</h2>
+                    <p>Comprehensive web application features designed for business intelligence and competitive analysis.</p>
+                </div>
+                <div class="offerings-content">
+                    <div>
+                        <h3>Web Application Features</h3>
+                        <ul class="offerings-list">
+                            <li>
+                                <div class="check-icon">✓</div>
+                                <div>
+                                    <strong>Comprehensive Pricing Analytics</strong><br>
+                                    Advanced pricing and price change analytics with historical trends and predictive insights.
+                                </div>
+                            </li>
+                            <li>
+                                <div class="check-icon">✓</div>
+                                <div>
+                                    <strong>Detailed B2B Reports</strong><br>
+                                    Professional reports and data exports tailored for business decision-making and strategic planning.
+                                </div>
+                            </li>
+                            <li>
+                                <div class="check-icon">✓</div>
+                                <div>
+                                    <strong>Location Monitoring</strong><br>
+                                    Active and passive location monitoring with real-time alerts and comprehensive coverage analysis.
+                                </div>
+                            </li>
+                            <li>
+                                <div class="check-icon">✓</div>
+                                <div>
+                                    <strong>Competitive Intelligence</strong><br>
+                                    Deep competitive analysis and market positioning insights across all monitored locations.
+                                </div>
+                            </li>
+                            <li>
+                                <div class="check-icon">✓</div>
+                                <div>
+                                    <strong>Menu Coverage Assessment</strong><br>
+                                    Comprehensive menu coverage analysis across brands with market penetration insights.
+                                </div>
+                            </li>
+                            <li>
+                                <div class="check-icon">✓</div>
+                                <div>
+                                    <strong>Market Segmentation</strong><br>
+                                    Location-based market segmentation with demographic and geographic analysis capabilities.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="offerings-visual">
+                        <img src="image-1.png" alt="Gustfy Interactive Dashboard Preview showing restaurant menu analytics, price tracking, and competitive intelligence charts" style="max-width:100%; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);" loading="lazy" width="600" height="450" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- B2B Analytics & Reports -->
+        <section class="analytics section" id="analytics">
+            <div class="container">
+                <div class="section-header">
+                    <h2>B2B Analytics & Reports</h2>
+                    <p>Transform raw restaurant data into strategic business intelligence with our comprehensive reporting suite.</p>
+                </div>
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h4>Geographic Drill-Down</h4>
+                        <p>Comprehensive data analysis by region, city, district, and individual locations. Understand market dynamics at every geographic level with detailed location-specific insights.</p>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>Product Availability Mapping</h4>
+                        <p>Location-specific product presence analysis showing where items are available, trending, or discontinued. Identify market gaps and expansion opportunities.</p>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>Menu Coverage Analysis</h4>
+                        <p>Analyze brand presence across different locations with comprehensive coverage metrics. Understand market penetration and competitive positioning.</p>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>Pricing Intelligence</h4>
+                        <p>Average item prices and competitive positioning analysis. Identify pricing trends, opportunities, and market-specific pricing strategies.</p>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>Competitive Landscape</h4>
+                        <p>Identification of competitor-dominated areas with market share analysis. Understand competitive dynamics and identify strategic opportunities.</p>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>Market Trend Forecasting</h4>
+                        <p>Predictive analytics for market trends, seasonal variations, and demand forecasting. Stay ahead of market changes with AI-driven insights.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta section" id="contact">
+            <div class="container">
+                <h2>Ready to Transform Your Market Intelligence?</h2>
+                <p>Join leading restaurant businesses leveraging Gustfy's AI-driven menu data intelligence to gain competitive advantage and drive strategic growth.</p>
+                <form class="cta-form" action="#" method="post">
+                    <input type="email" name="email" class="email-input" placeholder="your.email@company.com" required>
+                    <button type="submit" class="btn btn-primary">Request Demo</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" aria-label="Site footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Gustfy</h4>
+                    <p>AI-Driven Restaurant Menu Data Intelligence</p>
+                    <p>Transform restaurant data into competitive intelligence with cutting-edge AI technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#solution">Data Collection</a></li>
+                        <li><a href="#features">AI Processing</a></li>
+                        <li><a href="#analytics">Analytics & Reports</a></li>
+                        <li><a href="#contact">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Request Demo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Gustfy Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#FFFFFF';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Form submission handling
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                alert(`Thank you for your interest! We'll contact you at ${email} to schedule your demo.`);
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html> 
